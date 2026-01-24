@@ -1,8 +1,3 @@
-/*1. **Cajero de Denominaciones:** Escribe una función que reciba un monto a retirar. 
-El cajero solo cuenta con billetes de $50.000, $20.000 y $10.000. Retorna un objeto con 
-la cantidad mínima de billetes de cada denominación necesarios. 
-Si el monto no es múltiplo de 10.000, retorna un mensaje de error.*/
-
 function cajeroCantidadMinima(monto) {
   if (monto % 10000 !== 0) {
     return 'Error: El monto debe ser múltiplo de 10.000'
@@ -26,5 +21,3 @@ function cajeroCantidadMinima(monto) {
 }
 
 module.exports = cajeroCantidadMinima
-
-// Ejemplo de uso:
