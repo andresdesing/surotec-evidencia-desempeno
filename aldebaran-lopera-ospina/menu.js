@@ -1,5 +1,6 @@
 import { cajeroAuto } from "./ejercicio1.js";
 import { ajustarPrecios } from "./ejercicio2.js";
+import { verificarBeca } from "./ejercicio3.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -8,7 +9,7 @@ function ejecutarMenu() {
     let menuPrincipal = "--- SELECCIONE UN EJERCICIO ---\n";
     menuPrincipal += "1. Cajero de Denominaciones\n";
     menuPrincipal += "2. Inventario con Precios Dinámicos\n";
-    menuPrincipal += "3. Ejercicio 3\n";
+    menuPrincipal += "3. Sistema de Becas\n";
     menuPrincipal += "4. Ejercicio 4\n";
     menuPrincipal += "5. Ejercicio 5\n";
     menuPrincipal += "6. Ejercicio 6\n";
@@ -52,6 +53,29 @@ function ejecutarMenu() {
 
         alert("--- INVENTARIO ACTUALIZADO ---\n" + JSON.stringify(resultado2, null, 2));
         break;
+      case "3":
+        const promedio = parseFloat(prompt("Ingrese el Promedio (0.0 - 5.0):"));
+        const edad = parseInt(prompt("Ingrese la Edad:"));
+        const estrato = parseInt(prompt("Ingrese el Estrato (1-6):"));
+
+        if (isNaN(promedio) || isNaN(edad) || isNaN(estrato)) {
+            alert("Error: Por favor ingrese valores numéricos válidos.");
+        } else {
+            const estudiante = {
+                promedio: promedio,
+                edad: edad,
+                estrato: estrato
+            };
+
+            const tieneBeca = verificarBeca(estudiante);
+
+            if (tieneBeca) {
+                alert("¡APROBADO! El estudiante ha obtenido la beca.");
+            } else {
+                alert("DENEGADO. El estudiante no cumple los requisitos.");
+            }
+        }
+        break;  
       default:
         alert("Opción no válida");
         break;
