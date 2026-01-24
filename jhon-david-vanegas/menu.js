@@ -13,6 +13,7 @@ const nominaRecargos = require('./ejercicio9')
 const conversor = require('./ejercicio10')
 const capacidadAula = require('./ejercicio11')
 const analizarPalabrasProhibidas = require('./ejercicio12')
+const alertaSensores = require('./ejercicio13')
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -144,6 +145,12 @@ function ejecutarEjercicio(opcion) {
     console.log(analizarPalabrasProhibidas(texto, prohibidas))
     iniciarMenu()
     return
+
+  case 13:
+    const temperaturas = [32, 36, 37, 38, 34]
+    console.log(alertaSensores(temperaturas))
+    iniciarMenu()
+   return
 
 
 
