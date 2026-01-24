@@ -7,6 +7,7 @@ import { calcularImpuestosVentas } from "./ejercicio6.js";
 import { validarPassword } from "./ejercicio7.js";
 import { calcularEstadisticas } from "./ejercicio8.js";
 import { calcularNomina } from "./ejercicio9.js";
+import { convertirMoneda } from "./ejercicio10.js";
 
 const inventario = [
     { nombre: "Teclado", stock: 6, precio: 100 },
@@ -106,7 +107,7 @@ function ejecutarOpcion(opcion) {
                 let dato = prompt("Ingrese puntaje o 'P' para procesar:");
                 if (dato?.toUpperCase() === "P") {
                     const stats = calcularEstadisticas(puntajes);
-                    alert(typeof stats === "string" ? stats : `Promedio (sin extremos): ${stats.promedioRestante}`);
+                    alert(typeof stats === "string" ? stats : `Promedio: ${stats.promedioRestante}`);
                     ingresandoPuntajes = false;
                 } else if (!isNaN(dato) && dato !== "") {
                     puntajes.push(Number(dato));
@@ -114,14 +115,17 @@ function ejecutarOpcion(opcion) {
             }
             break;
         case "9":
-            const horas = Number(prompt("Ingrese total de horas trabajadas:"));
-            const valor = Number(prompt("Ingrese el valor de la hora normal:"));
-            if (!isNaN(horas) && !isNaN(valor)) {
-                const salario = calcularNomina(horas, valor);
-                alert(`El salario total neto con recargos es: $${salario}`);
-            } else {
-                alert("Datos ingresados no válidos.");
-            }
+            const h = Number(prompt("Horas:"));
+            const v = Number(prompt("Valor:"));
+            alert(`Salario: $${calcularNomina(h, v)}`);
+            break;
+        case "10":
+            const valor = Number(prompt("Monto a convertir:"));
+            const origen = prompt("Moneda origen (USD, EUR, COP):").toUpperCase();
+            const destino = prompt("Moneda destino (USD, EUR, COP):").toUpperCase();
+            
+            const conversion = convertirMoneda(valor, origen, destino);
+            alert(`Resultado: ${conversion.resultado} ${destino}\nConversiones realizadas: ${conversion.totalConsultas}`);
             break;
         case "0":
             return false;
@@ -146,8 +150,8 @@ function iniciarPrograma() {
             "7. Validador de Contraseñas\n" +
             "8. Estadísticas de Puntaje\n" +
             "9. Nómina con Recargos\n" +
-            "0. Salir\n\n" +
-            "Seleccione una opción:"
+            "10. Conversor de Moneda\n" +
+            "0. Salir"
         );
         continuar = (seleccion === "0" || seleccion === null) ? false : ejecutarOpcion(seleccion);
     }
