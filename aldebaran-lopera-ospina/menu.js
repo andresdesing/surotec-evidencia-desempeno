@@ -5,6 +5,7 @@ import { calcularTotalCarrito } from "./ejercicio4.js";
 import { controlAsistencia } from "./ejercicio5.js";
 import { calcularImpuestos } from "./ejercicio6.js";
 import { validarContrasena } from "./ejercicio7.js";
+import { calcularEstadisticas } from "./ejercicio8.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -18,7 +19,7 @@ function ejecutarMenu() {
     menuPrincipal += "5. Control de Asistencia\n";
     menuPrincipal += "6. Calculadora de Impuestos\n";
     menuPrincipal += "7. Validador de Contraseñas\n";
-    menuPrincipal += "8. Ejercicio 8\n";
+    menuPrincipal += "8. Estadísticas de Puntaje\n";
     menuPrincipal += "9. Ejercicio 9\n";
     menuPrincipal += "10. Ejercicio 10\n";
     menuPrincipal += "11. Ejercicio 11\n";
@@ -133,7 +134,18 @@ function ejecutarMenu() {
         } else {
             alert("No ingresaste ninguna contraseña.");
         }
-        break;  
+        break;
+      case "8":
+
+        const puntajesTest = [7, 10, 1, 8, 9];
+
+        alert("Puntajes recibidos:\n" + JSON.stringify(puntajesTest));
+
+        const resultadoPromedio = calcularEstadisticas(puntajesTest);
+
+        alert(`El promedio ajustado (sin extremos) es: ${resultadoPromedio}`);
+        break;
+
       default:
         alert("Opción no válida");
         break;
