@@ -2,27 +2,35 @@ let cantidadConversiones = 0
 
 function convertirMoneda(monto, monedaOrigen, monedaDestino) {
     cantidadConversiones++
-    
+
+    const origen = monedaOrigen.toUpperCase().trim()
+    const destino = monedaDestino.toUpperCase().trim()
+
     const tasaUSD = 4000
     const tasaEUR = 4250
+    
     let valorEnCOP = 0
 
-    if (monedaOrigen === 'COP') {
+    if (origen === 'COP') {
         valorEnCOP = monto
-    } else if (monedaOrigen === 'USD') {
+    } else if (origen === 'USD') {
         valorEnCOP = monto * tasaUSD
-    } else if (monedaOrigen === 'EUR') {
+    } else if (origen === 'EUR') {
         valorEnCOP = monto * tasaEUR
+    } else {
+        return "Error: Moneda de origen no válida"
     }
 
     let resultadoFinal = 0
 
-    if (monedaDestino === 'COP') {
+    if (destino === 'COP') {
         resultadoFinal = valorEnCOP
-    } else if (monedaDestino === 'USD') {
+    } else if (destino === 'USD') {
         resultadoFinal = valorEnCOP / tasaUSD
-    } else if (monedaDestino === 'EUR') {
+    } else if (destino === 'EUR') {
         resultadoFinal = valorEnCOP / tasaEUR
+    } else {
+        return "Error: Moneda de destino no válida"
     }
 
     return resultadoFinal
