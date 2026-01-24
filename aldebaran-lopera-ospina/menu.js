@@ -4,6 +4,7 @@ import { verificarBeca } from "./ejercicio3.js";
 import { calcularTotalCarrito } from "./ejercicio4.js";
 import { controlAsistencia } from "./ejercicio5.js";
 import { calcularImpuestos } from "./ejercicio6.js";
+import { validarContrasena } from "./ejercicio7.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -16,7 +17,7 @@ function ejecutarMenu() {
     menuPrincipal += "4. Carrito con Descuentos\n"
     menuPrincipal += "5. Control de Asistencia\n";
     menuPrincipal += "6. Calculadora de Impuestos\n";
-    menuPrincipal += "7. Ejercicio 7\n";
+    menuPrincipal += "7. Validador de Contraseñas\n";
     menuPrincipal += "8. Ejercicio 8\n";
     menuPrincipal += "9. Ejercicio 9\n";
     menuPrincipal += "10. Ejercicio 10\n";
@@ -117,6 +118,22 @@ function ejecutarMenu() {
 
         alert(`Total de Impuestos Recaudados (IVA + Retenciones):\n$${totalImpuestos}`);
         break;
+
+      case "7":
+        const passInput = prompt("Ingrese la contraseña a validar:\n(Mínimo 8 caracteres, 1 número y 1 símbolo)");
+        
+        if (passInput) {
+            const resultado = validarContrasena(passInput);
+            
+            if (resultado === "Segura") {
+                alert(`La contraseña es: ${resultado}`);
+            } else {
+                alert(`La contraseña es: ${resultado}\n(Recuerda: Mínimo 8 letras, incluir números y símbolos como @, #, $, etc.)`);
+            }
+        } else {
+            alert("No ingresaste ninguna contraseña.");
+        }
+        break;  
       default:
         alert("Opción no válida");
         break;
