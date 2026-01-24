@@ -1,6 +1,7 @@
 import { calcularDenominacionesBilletes } from './ejercicio1.js';
 import { actualizarPreciosInventario } from './ejercicio2.js';
-import { evaluarBeca } from './ejercicio3.js'; 
+import { evaluarBeca } from './ejercicio3.js';
+import { calcularTotalCarrito, carritoPrueba } from './ejercicio4.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -10,7 +11,8 @@ function menuPrincipal() {
             "--- TALLER DE LÓGICA DE PROGRAMACIÓN ---\n" +
             "1. Cajero de Denominaciones\n" +
             "2. Actualizar precios\n" +
-            "3. Sistema de Becas\n" + 
+            "3. Sistema de Becas\n" +
+            "4. Descuento por categoría en carrito de compras\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -45,7 +47,7 @@ function menuPrincipal() {
                 console.table(resultado2);
                 break;
 
-            case '3': 
+            case '3':
                 let p_promedio = parseFloat(prompt("Ingrese el promedio del estudiante (0.0 - 5.0):"));
                 let p_edad = parseInt(prompt("Ingrese la edad del estudiante:"));
                 let p_estrato = parseInt(prompt("Ingrese el estrato (1 - 6):"));
@@ -63,8 +65,24 @@ function menuPrincipal() {
                 );
                 break;
 
-            default: 
-                alert("Opción no válida.");
+            case '4':
+                const listaProductos = carritoPrueba
+                    .map(p => `- ${p.nombre} (${p.categoria}): $${p.precio}`)
+                    .join('\n');
+
+                const totalCompra = calcularTotalCarrito(carritoPrueba);
+                const conteoElectronica = carritoPrueba.filter(p => p.categoria === 'Electronica').length;
+
+                alert(
+                    `--- PRODUCTOS EN EL CARRITO ---\n` +
+                    `${listaProductos}\n\n` +
+                    `--- RESUMEN ---\n` +
+                    `Productos Electrónica: ${conteoElectronica}\n` +
+                    `Descuento aplicado (15%): ${conteoElectronica > 3 ? "SÍ" : "NO"}\n\n` +
+                    `TOTAL A PAGAR: $${totalCompra}`
+                );
+
+                console.table(carritoPrueba);
                 break;
         }
     }
