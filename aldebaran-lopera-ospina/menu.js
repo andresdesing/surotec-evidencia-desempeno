@@ -1,4 +1,5 @@
 import { cajeroAuto } from "./ejercicio1.js";
+import { ajustarPrecios } from "./ejercicio2.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -6,7 +7,7 @@ function ejecutarMenu() {
   while (!salir) {
     let menuPrincipal = "--- SELECCIONE UN EJERCICIO ---\n";
     menuPrincipal += "1. Cajero de Denominaciones\n";
-    menuPrincipal += "2. Ejercicio 2\n";
+    menuPrincipal += "2. Inventario con Precios Dinámicos\n";
     menuPrincipal += "3. Ejercicio 3\n";
     menuPrincipal += "4. Ejercicio 4\n";
     menuPrincipal += "5. Ejercicio 5\n";
@@ -41,7 +42,15 @@ function ejecutarMenu() {
         alert("Resultado:\n" + JSON.stringify(resultado1, null, 2));
         break;
       case "2":
-        alert("Ejercicio 2 no implementado");
+        const inventarioTest = [
+            { nombre: "Laptop Gamer", stock: 4, precio: 3000 },
+            { nombre: "Mouse", stock: 25, precio: 20 },
+            { nombre: "Teclado", stock: 10, precio: 100 }
+        ];
+
+        const resultado2 = ajustarPrecios(inventarioTest);
+
+        alert("--- INVENTARIO ACTUALIZADO ---\n" + JSON.stringify(resultado2, null, 2));
         break;
       default:
         alert("Opción no válida");
