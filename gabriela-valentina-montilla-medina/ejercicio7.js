@@ -25,5 +25,5 @@ export function ejercicio7() {
     return "Segura"
   }
 
-  return "Insegura"
+  return "Insegura no cumple con los requisitos de (número y carácter especial) 8 caracteres"
 }
