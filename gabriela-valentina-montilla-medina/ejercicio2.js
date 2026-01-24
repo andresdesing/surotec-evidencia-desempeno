@@ -1,4 +1,3 @@
-//Ejercicio 2
 export function ejercicio2() {
   let cantidadProductos = Number(prompt("Ingrese la cantidad de productos"))
   let productos = []

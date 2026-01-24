@@ -1,4 +1,3 @@
-// Ejercicio 1
 export function ejercicio1() {
   let monto = Number(prompt("Ingrese el monto a retirar"))
 
