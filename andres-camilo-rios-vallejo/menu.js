@@ -1,6 +1,7 @@
 import { cajeroDenominaciones } from './ejercicio1.js'
 import { ajusteDePrecios } from './ejercicio2.js'
 import { verificarBeca } from './ejercicio3.js'
+import { calcularTotalCarrito } from './ejercicio4.js'
 
 function ejecutarMenu() {
 
@@ -11,6 +12,7 @@ function ejecutarMenu() {
         menu += "1. Calcular denominaciones para retiro de dinero\n";
         menu += "2. Ajustar precios de productos según stock\n";
         menu += "3. Sistema de Becas\n";
+        menu += "4. Carrito con Descuento (Electrónica)\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -46,6 +48,18 @@ function ejecutarMenu() {
                 const tieneBeca = verificarBeca(estudiante)
                 
                 alert("RESULTADO BECA: " + tieneBeca)
+                break
+
+            case '4':
+                const carrito = [
+                    { nombre: "Laptop", categoria: "Electronica", precio: 2000 },
+                    { nombre: "Mouse", categoria: "Electronica", precio: 50 },
+                    { nombre: "Teclado", categoria: "Electronica", precio: 100 },
+                    { nombre: "Monitor", categoria: "Electronica", precio: 500 },
+                    { nombre: "Silla", categoria: "Hogar", precio: 150 }
+                ]
+                const total = calcularTotalCarrito(carrito)
+                alert("TOTAL CARRITO: " + total)
                 break
 
             case '0':
