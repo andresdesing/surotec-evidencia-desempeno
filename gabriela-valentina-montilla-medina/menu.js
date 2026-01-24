@@ -8,6 +8,7 @@ import { ejercicio7 } from "./ejercicio7.js"
 import { ejercicio8 } from "./ejercicio8.js"
 import { ejercicio9 } from "./ejercicio9.js"
 import { ejercicio10 } from "./ejercicio10.js"
+import { ejercicio11 } from "./ejercicio11.js"
 
 function mostrarMenu() {
     return prompt(
@@ -89,7 +90,7 @@ function ejecutarMenu() {
                 alert("Valor convertido: " + ejercicio10())
                 break
             case "11":
-                (ejercicio11())
+                 alert("Estudiantes que quedaron fuera: " + ejercicio11())
                 break
             case "12":
                 (ejercicio12())
