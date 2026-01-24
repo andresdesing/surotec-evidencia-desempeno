@@ -10,6 +10,7 @@ import { ejercicio9 } from "./ejercicio9.js"
 import { ejercicio10 } from "./ejercicio10.js"
 import { ejercicio11 } from "./ejercicio11.js"
 import { ejercicio12 } from "./ejercicio12.js"
+import { ejercicio13 } from "./ejercicio13.js"
 
 function mostrarMenu() {
     return prompt(
@@ -97,7 +98,7 @@ function ejecutarMenu() {
                 alert(JSON.stringify(ejercicio12(), null, 2))
                 break
             case "13":
-                (ejercicio13())
+                alert(ejercicio13())
                 break
             case "14":
                 (ejercicio14())
