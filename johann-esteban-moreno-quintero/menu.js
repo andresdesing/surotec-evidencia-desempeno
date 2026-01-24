@@ -6,6 +6,7 @@ import { evaluarAsistencia, asistenciasPrueba1, asistenciasPrueba2 } from './eje
 import { calcularImpuestosVentas, ventasPrueba } from './ejercicio6.js';
 import { validarPassword, passwordPruebaSegura, passwordPruebaInsegura } from './ejercicio7.js';
 import { calcularEstadisticasPuntaje, puntajesPrueba } from './ejercicio8.js';
+import { calcularNomina, datosNominaPrueba } from './ejercicio9.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -21,6 +22,7 @@ function menuPrincipal() {
             "6. Calcular impuestos ventas\n" +
             "7. Validar el nivel de seguridad en una contaseña\n" +
             "8. Calcular promedio restando máximo y mínimo\n" +
+            "9. Calcular el salario basándonos en las horas trabajadas\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -149,6 +151,26 @@ function menuPrincipal() {
                     `Valor más bajo (excluido): ${min}\n\n` +
                     `PROMEDIO RESTANTE: ${promedio}`
                 );
+                break;
+
+            case '9':
+                const h = parseInt(prompt("Ingrese horas trabajadas:", datosNominaPrueba.horas));
+                const v = parseFloat(prompt("Ingrese valor de la hora:", datosNominaPrueba.valorHora));
+
+                if (!isNaN(h) && !isNaN(v)) {
+                    const resultado = calcularNomina(h, v);
+                    alert(
+                        `--- DESGLOSE DE NÓMINA ---\n\n` +
+                        `Horas Totales: ${h}\n` +
+                        `Valor Hora Base: $${v}\n` +
+                        `---------------------------\n` +
+                        `Pago Horas Normales: $${resultado.normal}\n` +
+                        `Pago Extras (50%): $${resultado.extra50}\n` +
+                        `Pago Extras (100%): $${resultado.extra100}\n` +
+                        `---------------------------\n` +
+                        `TOTAL NETO: $${resultado.total}`
+                    );
+                }
                 break;
         }
     }
