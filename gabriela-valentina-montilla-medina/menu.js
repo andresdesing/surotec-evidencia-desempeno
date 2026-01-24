@@ -6,6 +6,7 @@ import { ejercicio5 } from "./ejercicio5.js"
 import { ejercicio6 } from "./ejercicio6.js"
 import { ejercicio7 } from "./ejercicio7.js"
 import { ejercicio8 } from "./ejercicio8.js"
+import { ejercicio9 } from "./ejercicio9.js"
 
 
 function mostrarMenu() {
@@ -82,7 +83,7 @@ function ejecutarMenu() {
                   alert("Promedio (sin máximo ni mínimo): " + ejercicio8())
                 break
             case "9":
-                (ejercicio9())
+                alert("Salario total: $" + ejercicio9())
                 break
             case "10":
                 (ejercicio10())
