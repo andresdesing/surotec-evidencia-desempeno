@@ -9,6 +9,7 @@ const controlAsistencia = require('./ejercicio5')
 const impuestosVentas = require('./ejercicio6')
 const validadorContrasenas = require('./ejercicio7')
 const estadisticasPuntaje = require('./ejercicio8')
+const nominaRecargos = require('./ejercicio9')
 
 
 const rl = readline.createInterface({
@@ -102,6 +103,13 @@ function ejecutarEjercicio(opcion) {
        console.log(estadisticasPuntaje(valores))
        iniciarMenu()
     return
+
+    case 9:
+       const hours = 55
+       const valorHora = 10000
+       console.log(nominaRecargos(hours, valorHora))
+       iniciarMenu()
+       return
 
 
 
