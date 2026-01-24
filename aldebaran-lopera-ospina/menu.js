@@ -2,6 +2,7 @@ import { cajeroAuto } from "./ejercicio1.js";
 import { ajustarPrecios } from "./ejercicio2.js";
 import { verificarBeca } from "./ejercicio3.js";
 import { calcularTotalCarrito } from "./ejercicio4.js";
+import { controlAsistencia } from "./ejercicio5.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -12,7 +13,7 @@ function ejecutarMenu() {
     menuPrincipal += "2. Inventario con Precios Dinámicos\n";
     menuPrincipal += "3. Sistema de Becas\n";
     menuPrincipal += "4. Carrito con Descuentos\n"
-    menuPrincipal += "5. Ejercicio 5\n";
+    menuPrincipal += "5. Control de Asistencia\n";
     menuPrincipal += "6. Ejercicio 6\n";
     menuPrincipal += "7. Ejercicio 7\n";
     menuPrincipal += "8. Ejercicio 8\n";
@@ -77,8 +78,7 @@ function ejecutarMenu() {
             }
         }
         break;
-      case "4": // <--- LÓGICA DEL EJERCICIO 4
-        // Datos de prueba: 4 productos de Electrónica (debe activar descuento) y 1 de Ropa
+      case "4":
         const carritoTest = [
             { nombre: "TV", categoria: "Electronica", precio: 1000 },
             { nombre: "Radio", categoria: "Electronica", precio: 200 },
@@ -96,6 +96,20 @@ function ejecutarMenu() {
       default:
         alert("Opción no válida");
         break;
+      case "5":
+
+        const asistenciaTest = ["08:05", "08:20", "08:00", "08:30", "08:16"];
+        alert("Evaluando asistencias:\n" + JSON.stringify(asistenciaTest));
+
+        const resultado5 = controlAsistencia(asistenciaTest);
+
+        if (resultado5 === "Suspendido") {
+            alert("EL EMPLEADO HA SIDO SUSPENDIDO.\n(Tiene más de 2 llegadas tarde superiores a 15 minutos).");
+        } else {
+            alert(`Empleado activo.\nDebe pagar una multa total de: $${resultado5}`);
+        }
+        break;
+
     }
   }
 }
