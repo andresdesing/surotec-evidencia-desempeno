@@ -21,3 +21,4 @@ function validarContrasena(contrasena) {
     }
     return 'Insegura';
 }
+module.exports = validarContrasena;
