@@ -6,6 +6,7 @@ import { controlAsistencia } from "./ejercicio5.js";
 import { calcularImpuestos } from "./ejercicio6.js";
 import { validarContrasena } from "./ejercicio7.js";
 import { calcularEstadisticas } from "./ejercicio8.js";
+import { calcularNomina } from "./ejercicio9.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -20,7 +21,7 @@ function ejecutarMenu() {
     menuPrincipal += "6. Calculadora de Impuestos\n";
     menuPrincipal += "7. Validador de Contraseñas\n";
     menuPrincipal += "8. Estadísticas de Puntaje\n";
-    menuPrincipal += "9. Ejercicio 9\n";
+    menuPrincipal += "9. Nómina con Recargos\n";
     menuPrincipal += "10. Ejercicio 10\n";
     menuPrincipal += "11. Ejercicio 11\n";
     menuPrincipal += "12. Ejercicio 12\n";
@@ -145,6 +146,26 @@ function ejecutarMenu() {
 
         alert(`El promedio ajustado (sin extremos) es: ${resultadoPromedio}`);
         break;
+
+      case "9":
+        const horasInput = parseInt(prompt("Ingrese las horas trabajadas:"));
+        const valorInput = parseFloat(prompt("Ingrese el valor de la hora:"));
+
+        if (!isNaN(horasInput) && !isNaN(valorInput)) {
+            const salarioTotal = calcularNomina(horasInput, valorInput);
+            
+
+            let mensaje = `👷 Cálculo de Nómina:\n`;
+            mensaje += `Horas trabajadas: ${horasInput}\n`;
+            mensaje += `Valor hora: $${valorInput}\n`;
+            mensaje += `--------------------------\n`;
+            mensaje += `TOTAL A PAGAR: $${salarioTotal}`;
+            
+            alert(mensaje);
+        } else {
+            alert("Por favor ingrese valores numéricos válidos.");
+        }
+        break;  
 
       default:
         alert("Opción no válida");
