@@ -1,4 +1,4 @@
-descuentoCarrito(productos) {
+descuentoCarrito(productos); {
     const cantidadDigital = productos.filter(p => p.tipo === 'digital').length;
 
     const aplicarDescuento = cantidadDigital >= 3;
