@@ -5,6 +5,7 @@ const ejercicio1 = require('./ejercicio1')
 const ejercicio2 = require('./ejercicio2')
 const sistemaBecas = require('./ejercicio3')
 const carritoDescuentoCategoria = require('./ejercicio4')
+const controlAsistencia = require('./ejercicio5')
 
 
 const rl = readline.createInterface({
@@ -63,6 +64,13 @@ function ejecutarEjercicio(opcion) {
        console.log(carritoDescuentoCategoria(carrito))
        iniciarMenu()
        return
+
+    case 5:
+        const horas = ['08:17', '08:18', '08:18']
+        console.log(controlAsistencia(horas))
+        iniciarMenu()
+     return
+
 
 
 
