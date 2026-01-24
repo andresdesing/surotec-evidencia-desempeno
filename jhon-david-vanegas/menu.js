@@ -16,6 +16,7 @@ const analizarPalabrasProhibidas = require('./ejercicio12')
 const alertaSensores = require('./ejercicio13')
 const descuentoLealtad = require('./ejercicio14')
 const filtrarTareasUrgentes = require('./ejercicio15')
+const liquidacionServicios = require('./ejercicio16')
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -172,6 +173,15 @@ function ejecutarEjercicio(opcion) {
   console.log(filtrarTareasUrgentes(tareas))
   iniciarMenu()
   return
+
+  case 16:
+  const consumo = 40
+  const estrato = 1
+
+  console.log(liquidacionServicios(consumo, estrato))
+  iniciarMenu()
+  return
+
 
 
     default:
