@@ -3,6 +3,7 @@ import { ajustarPrecios } from "./ejercicio2.js";
 import { verificarBeca } from "./ejercicio3.js";
 import { calcularTotalCarrito } from "./ejercicio4.js";
 import { controlAsistencia } from "./ejercicio5.js";
+import { calcularImpuestos } from "./ejercicio6.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -14,7 +15,7 @@ function ejecutarMenu() {
     menuPrincipal += "3. Sistema de Becas\n";
     menuPrincipal += "4. Carrito con Descuentos\n"
     menuPrincipal += "5. Control de Asistencia\n";
-    menuPrincipal += "6. Ejercicio 6\n";
+    menuPrincipal += "6. Calculadora de Impuestos\n";
     menuPrincipal += "7. Ejercicio 7\n";
     menuPrincipal += "8. Ejercicio 8\n";
     menuPrincipal += "9. Ejercicio 9\n";
@@ -92,9 +93,6 @@ function ejecutarMenu() {
         const totalPagar = calcularTotalCarrito(carritoTest);
 
         alert(`Total a pagar: $${totalPagar}\n(Se aplicó descuento a Electrónica por tener más de 3 artículos)`);
-        break;  
-      default:
-        alert("Opción no válida");
         break;
       case "5":
 
@@ -109,7 +107,19 @@ function ejecutarMenu() {
             alert(`Empleado activo.\nDebe pagar una multa total de: $${resultado5}`);
         }
         break;
+      case "6":
 
+        const ventasTest = [100000, 1000000];
+
+        alert("Ventas a procesar:\n" + JSON.stringify(ventasTest));
+
+        const totalImpuestos = calcularImpuestos(ventasTest);
+
+        alert(`Total de Impuestos Recaudados (IVA + Retenciones):\n$${totalImpuestos}`);
+        break;
+      default:
+        alert("Opción no válida");
+        break;
     }
   }
 }
