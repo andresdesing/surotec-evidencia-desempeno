@@ -11,6 +11,7 @@ const validadorContrasenas = require('./ejercicio7')
 const estadisticasPuntaje = require('./ejercicio8')
 const nominaRecargos = require('./ejercicio9')
 const conversor = require('./ejercicio10')
+const capacidadAula = require('./ejercicio11')
 
 
 const rl = readline.createInterface({
@@ -128,6 +129,15 @@ function ejecutarEjercicio(opcion) {
      })
    })
    return
+
+  case 11:
+      const capacidad = 30
+      const grupos = [10, 8, 12, 5]
+      console.log(capacidadAula(capacidad, grupos))
+      iniciarMenu()
+    return
+
+
 
 
 
