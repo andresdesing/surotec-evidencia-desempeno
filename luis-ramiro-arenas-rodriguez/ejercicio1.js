@@ -1,4 +1,4 @@
-const denominaciones = monto => {
+function cajeroDenominaciones(monto) {
     if (monto % 10000 !== 0) {
         return "El monto debe ser múltiplo de 10,000";
     }
@@ -19,4 +19,3 @@ const denominaciones = monto => {
         billetes10
     }
 }
-export { denominaciones };
