@@ -20,30 +20,30 @@ import { ejercicio19 } from "./ejercicio19.js"
 import { ejercicio20 } from "./ejercicio20.js"
 
 function mostrarMenu() {
-    return prompt(
-        "MENÚ PRINCIPAL EVALUACION DE DESEMPEÑO\n" +
-        "1. Ejercicio 1\n" +
-        "2. Ejercicio 2\n" +
-        "3. Ejercicio 3\n" +
-        "4. Ejercicio 4\n" +
-        "5. Ejercicio 5\n" +
-        "6. Ejercicio 6\n" +
-        "7. Ejercicio 7\n" +
-        "8. Ejercicio 8\n" +
-        "9. Ejercicio 9\n" +
-        "10. Ejercicio 10\n" +
-        "11. Ejercicio 11\n" +
-        "12. Ejercicio 12\n" +
-        "13. Ejercicio 13\n" +
-        "14. Ejercicio 14\n" +
-        "15. Ejercicio 15\n" +
-        "16. Ejercicio 16\n" +
-        "17. Ejercicio 17\n" +
-        "18. Ejercicio 18\n" +
-        "19. Ejercicio 19\n" +
-        "20. Ejercicio 20\n" +
-        "0. Salir"
-    )
+  return prompt(
+    "MENÚ PRINCIPAL EVALUACION DE DESEMPEÑO\n" +
+    "1. Cajero de Denominaciones\n" +
+    "2. Inventario con Precios Dinámicos\n" +
+    "3. Sistema de Becas\n" +
+    "4. Carrito con Descuento por Categoría\n" +
+    "5. Control de Asistencia y Sanción\n" +
+    "6. Impuestos de Ventas\n" +
+    "7. Validador de Contraseñas\n" +
+    "8. Estadísticas de Puntaje\n" +
+    "9. Nómina con Recargos\n" +
+    "10. Conversor con Registro\n" +
+    "11. Capacidad de Aula\n" +
+    "12. Análisis de Palabras Prohibidas\n" +
+    "13. Alerta de Sensores\n" +
+    "14. Descuento por Lealtad\n" +
+    "15. Filtro de Tareas Urgentes\n" +
+    "16. Liquidación de Servicios\n" +
+    "17. Monitoreo de Transacciones\n" +
+    "18. Restricción de Biblioteca\n" +
+    "19. Plan de Ruta de Entrega\n" +
+    "20. Generador de CSV\n" +
+    "0. Salir"
+  )
 }
 
 function ejecutarMenu() {
