@@ -1,3 +1,25 @@
+import {ejercicio1  } from "./ejercicio1.js"
+import {ejercicio2  } from "./ejercicio2.js"
+import {ejercicio3  } from "./ejercicio3.js"
+import {ejercicio4  } from "./ejercicio4.js"
+import {ejercicio5  } from "./ejercicio5.js"
+import {ejercicio6  } from "./ejercicio6.js"
+import {ejercicio7  } from "./ejercicio7.js"
+import {ejercicio8  } from "./ejercicio8.js"
+import {ejercicio9  } from "./ejercicio9.js"
+import {ejercicio10 } from "./ejercicio10.js"
+import {ejercicio11 } from "./ejercicio11.js"
+import {ejercicio12 } from "./ejercicio12.js"
+import {ejercicio13 } from "./ejercicio13.js"
+import {ejercicio14 } from "./ejercicio14.js"
+import {ejercicio15 } from "./ejercicio15.js"
+import {ejercicio16 } from "./ejercicio16.js"
+import {ejercicio17 } from "./ejercicio17.js"
+import {ejercicio18 } from "./ejercicio18.js"
+import {ejercicio19 } from "./ejercicio19.js"
+import {ejercicio20 } from "./ejercicio20.js"
+
+
 function mostrarMenu() {
   return prompt(
     "MENÚ PRINCIPAL EVALUACION DE DESEMPEÑO\n" +
@@ -33,64 +55,64 @@ function ejecutarMenu() {
 
     switch (opcion) {
       case "1":
-        alert(ejercicio1())
+        (ejercicio1())
         break
       case "2":
-        alert(ejercicio2())
+        (ejercicio2())
         break
       case "3":
-        alert(ejercicio3())
+       (ejercicio3())
         break
       case "4":
-        alert(ejercicio4())
+        (ejercicio4())
         break
       case "5":
-        alert(ejercicio5())
+        (ejercicio5())
         break
       case "6":
-        alert(ejercicio6())
+        (ejercicio6())
         break
       case "7":
-        alert(ejercicio7())
+        (ejercicio7())
         break
       case "8":
-        alert(ejercicio8())
+       (ejercicio8())
         break
       case "9":
-        alert(ejercicio9())
+       (ejercicio9())
         break
       case "10":
-        alert(ejercicio10())
+        (ejercicio10())
         break
       case "11":
-        alert(ejercicio11())
+        (ejercicio11())
         break
       case "12":
-        alert(ejercicio12())
+        (ejercicio12())
         break
       case "13":
-        alert(ejercicio13())
+        (ejercicio13())
         break
       case "14":
-        alert(ejercicio14())
+        (ejercicio14())
         break
       case "15":
-        alert(ejercicio15())
+       (ejercicio15())
         break
       case "16":
-        alert(ejercicio16())
+       (ejercicio16())
         break
       case "17":
-        alert(ejercicio17())
+        (ejercicio17())
         break
       case "18":
-        alert(ejercicio18())
+       (ejercicio18())
         break
       case "19":
-        alert(ejercicio19())
+        (ejercicio19())
         break
       case "20":
-        alert(ejercicio20())
+        (ejercicio20())
         break
       case "0":
         alert("Programa finalizado")
