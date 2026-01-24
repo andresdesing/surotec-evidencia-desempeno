@@ -6,6 +6,7 @@ const ejercicio2 = require('./ejercicio2')
 const sistemaBecas = require('./ejercicio3')
 const carritoDescuentoCategoria = require('./ejercicio4')
 const controlAsistencia = require('./ejercicio5')
+const impuestosVentas = require('./ejercicio6')
 
 
 const rl = readline.createInterface({
@@ -71,8 +72,11 @@ function ejecutarEjercicio(opcion) {
         iniciarMenu()
      return
 
-
-
+    case 6:
+       const ventas = [300000, 600000, 1000000]
+       console.log(impuestosVentas(ventas))
+       iniciarMenu()
+     return
 
     
 
