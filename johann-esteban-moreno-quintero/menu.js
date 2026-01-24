@@ -3,6 +3,7 @@ import { actualizarPreciosInventario } from './ejercicio2.js';
 import { evaluarBeca } from './ejercicio3.js';
 import { calcularTotalCarrito, carritoPrueba } from './ejercicio4.js';
 import { evaluarAsistencia, asistenciasPrueba1, asistenciasPrueba2 } from './ejercicio5.js';
+import { calcularImpuestosVentas, ventasPrueba } from './ejercicio6.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -15,6 +16,7 @@ function menuPrincipal() {
             "3. Sistema de Becas\n" +
             "4. Descuento por categoría en carrito de compras\n" +
             "5. Evaluar asistencia - establecer multa\n" +
+            "6. Calcular impuestos ventas\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -99,6 +101,18 @@ function menuPrincipal() {
                     `Escenario 2 (Retardos críticos):\n` +
                     `Registros: ${asistenciasPrueba2.join(' | ')}\n` +
                     `Resultado: ${res2}`
+                );
+                break;
+
+            case '6':
+                const totalImpuestos = calcularImpuestosVentas(ventasPrueba);
+
+                alert(
+                    `--- REPORTE DE IMPUESTOS ---\n\n` +
+                    `Montos evaluados: ${ventasPrueba.join(' | ')}\n` +
+                    `IVA aplicado (19%): Sí (a todas)\n` +
+                    `Retención aplicada (4%): Solo a ventas > $500.000\n\n` +
+                    `ACUMULADO TOTAL IMPUESTOS: $${totalImpuestos}`
                 );
                 break;
         }
