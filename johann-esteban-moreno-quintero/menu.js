@@ -6,7 +6,8 @@ import { evaluarAsistencia, asistenciasPrueba1, asistenciasPrueba2 } from './eje
 import { calcularImpuestosVentas, ventasPrueba } from './ejercicio6.js';
 import { validarPassword, passwordPruebaSegura, passwordPruebaInsegura } from './ejercicio7.js';
 import { calcularEstadisticasPuntaje, puntajesPrueba } from './ejercicio8.js';
-import { calcularNomina, datosNominaPrueba } from './ejercicio9.js';
+import { calcularNomina } from './ejercicio9.js';
+import { convertirMoneda } from './ejercicio10.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -23,6 +24,7 @@ function menuPrincipal() {
             "7. Validar el nivel de seguridad en una contaseña\n" +
             "8. Calcular promedio restando máximo y mínimo\n" +
             "9. Calcular el salario basándonos en las horas trabajadas\n" +
+            "10.Conversor de moneda con seguimiento de contador de ejecuciones\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -169,6 +171,22 @@ function menuPrincipal() {
                         `Pago Extras (100%): $${resultado.extra100}\n` +
                         `---------------------------\n` +
                         `TOTAL NETO: $${resultado.total}`
+                    );
+                }
+                break;
+
+            case '10':
+                const montoConv = parseFloat(prompt("Monto a convertir:"));
+                const origen = prompt("Moneda origen (USD, EUR, COP):").toUpperCase();
+                const destino = prompt("Moneda destino (USD, EUR, COP):").toUpperCase();
+
+                if (!isNaN(montoConv)) {
+                    const resConv = convertirMoneda(montoConv, origen, destino);
+                    alert(
+                        `--- CONVERSOR DE DIVISAS ---\n` +
+                        `${montoConv} ${origen} = ${resConv.valor} ${destino}\n` +
+                        `---------------------------\n` +
+                        `Consultas en esta sesión: ${resConv.totalConsultas}`
                     );
                 }
                 break;
