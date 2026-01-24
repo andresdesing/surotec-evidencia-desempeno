@@ -8,6 +8,7 @@ const carritoDescuentoCategoria = require('./ejercicio4')
 const controlAsistencia = require('./ejercicio5')
 const impuestosVentas = require('./ejercicio6')
 const validadorContrasenas = require('./ejercicio7')
+const estadisticasPuntaje = require('./ejercicio8')
 
 
 const rl = readline.createInterface({
@@ -80,21 +81,28 @@ function ejecutarEjercicio(opcion) {
      return
 
      case 7:
-  function pedirContrasena() {
-    rl.question('Ingrese la contraseña: ', texto => {
-      const resultado = validadorContrasenas(texto)
-      console.log(resultado)
+         function pedirContrasena() {
+         rl.question('Ingrese la contraseña: ', texto => {
+         const resultado = validadorContrasenas(texto)
+         console.log(resultado)
 
-      if (resultado === 'Segura') {
-        iniciarMenu()
-      } else {
-        pedirContrasena()
-      }
-    })
-  }
+         if (resultado === 'Segura') {
+          iniciarMenu()
+         } else {
+         pedirContrasena()
+        }
+       })
+     }
 
-  pedirContrasena()
-  return
+     pedirContrasena()
+     return
+
+    case 8:
+       const valores = [10, 20, 30, 40, 50]
+       console.log(estadisticasPuntaje(valores))
+       iniciarMenu()
+    return
+
 
 
     
