@@ -1,8 +1,3 @@
-/***Impuestos de Ventas:** Recibes un arreglo de montos de ventas brutas. 
- * Calcula el IVA (19%) de cada una. Si una venta supera los $500.000,
- *  aplica una retención del 4% adicional sobre el valor neto. Retorna el
- *  acumulado total de impuestos.*/
-
 function calcularImpuestosVentas(ventas) {
   let totalImpuestos = 0
     const IVA = 0.19
