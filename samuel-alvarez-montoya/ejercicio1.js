@@ -1,4 +1,4 @@
-function calcularDenominaciones(monto) {
+export function calcularDenominaciones(monto) {
     if (monto % 10000 !== 0) {
         return "Error: el monto debe ser múltiplo de 10.000";
     }

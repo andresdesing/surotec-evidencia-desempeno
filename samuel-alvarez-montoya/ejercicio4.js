@@ -1,4 +1,4 @@
-function calcularTotalConDescuento(productos) {
+export function calcularTotalConDescuento(productos) {
     
     let total = 0;
     let cantidadElectronica = 0;

@@ -1,4 +1,4 @@
-function calcularSalario(horasTrabajadas, valorHora) {
+export function calcularSalario(horasTrabajadas, valorHora) {
 
     let salario = 0;
 

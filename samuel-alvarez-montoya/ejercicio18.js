@@ -1,4 +1,4 @@
-function validarPrestamoBiblioteca(prestamos) {
+export function validarPrestamoBiblioteca(prestamos) {
     
     let multaTotal = 0;
 

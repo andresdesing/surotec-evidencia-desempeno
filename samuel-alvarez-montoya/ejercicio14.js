@@ -1,4 +1,4 @@
-function calcularDescuentoLealtad(compras, antiguedadAnios) {
+export function calcularDescuentoLealtad(compras, antiguedadAnios) {
     
     let suma = 0;
 

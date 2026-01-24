@@ -1,4 +1,4 @@
-function tieneBeca(estudiante) {
+export function tieneBeca(estudiante) {
 
     if (estudiante.promedio >= 4.5) {
         return true;

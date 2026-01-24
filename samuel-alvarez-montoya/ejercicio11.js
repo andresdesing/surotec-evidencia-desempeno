@@ -1,5 +1,4 @@
-function calcularEstudiantesFuera(capacidadMaxima, gruposEstudiantes) {
-    
+export function calcularEstudiantesFuera(capacidadMaxima, gruposEstudiantes) {
     let capacidadRestante = capacidadMaxima;
     let estudiantesFuera = 0;
 
@@ -7,8 +6,8 @@ function calcularEstudiantesFuera(capacidadMaxima, gruposEstudiantes) {
         if (gruposEstudiantes[i] <= capacidadRestante) {
             capacidadRestante -= gruposEstudiantes[i];
         } else {
-            estudiantesFuera = gruposEstudiantes[i];
-            break;
+            estudiantesFuera += gruposEstudiantes[i] - capacidadRestante;
+            capacidadRestante = 0; 
         }
     }
 

@@ -1,4 +1,4 @@
-function calcularImpuestosVentas(ventas) {
+export function calcularImpuestosVentas(ventas) {
 
     let totalImpuestos = 0;
 

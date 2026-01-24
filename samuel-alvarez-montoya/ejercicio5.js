@@ -1,4 +1,4 @@
-function calcularSancionAsistencia(horasLlegada) {
+export function calcularSancionAsistencia(horasLlegada) {
     
     let totalMulta = 0;
     let llegadasGraves = 0;

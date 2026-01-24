@@ -1,4 +1,4 @@
-function actualizarPreciosProductos(productos) {
+export function actualizarPreciosProductos(productos) {
     let productosActualizados = [];
 
     for (let i = 0; i < productos.length; i++) {

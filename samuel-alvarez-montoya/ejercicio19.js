@@ -1,4 +1,4 @@
-function planRutaEntrega(distancias) {
+export function planRutaEntrega(distancias) {
     
     let combustibleDisponible = 200;
     let destinosVisitados = [];

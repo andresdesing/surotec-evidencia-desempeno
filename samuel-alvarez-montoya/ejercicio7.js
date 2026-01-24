@@ -1,4 +1,4 @@
-function validarContrasena(contrasena) {
+export function validarContrasena(contrasena) {
 
     if (contrasena.length < 8) {
         return "Insegura";

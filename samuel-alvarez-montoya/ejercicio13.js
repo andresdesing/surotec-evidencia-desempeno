@@ -1,4 +1,4 @@
-function verificarSobrecalentamiento(temperaturas) {
+export function verificarSobrecalentamiento(temperaturas) {
     
     let contador = 0;
 

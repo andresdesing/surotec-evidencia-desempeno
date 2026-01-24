@@ -1,4 +1,4 @@
-function crearConversorMonedas() {
+export function crearConversorMonedas() {
     
     let contadorConversiones = 0;
 

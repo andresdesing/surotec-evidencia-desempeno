@@ -1,4 +1,4 @@
-function contarPalabrasProhibidas(texto, palabrasProhibidas) {
+export function contarPalabrasProhibidas(texto, palabrasProhibidas) {
     
     let resultado = {};
     let palabrasTexto = texto.toLowerCase().split(" ");

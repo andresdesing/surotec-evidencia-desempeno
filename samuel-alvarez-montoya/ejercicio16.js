@@ -1,4 +1,4 @@
-function calcularValorServicioAgua(consumoMetrosCubicos, estrato) {
+export function calcularValorServicioAgua(consumoMetrosCubicos, estrato) {
     
     let total = 0;
 

@@ -1,4 +1,4 @@
-function generarCsvUsuarios(usuarios) {
+export function generarCsvUsuarios(usuarios) {
     let csv = "";
 
     for (let i = 0; i < usuarios.length; i++) {

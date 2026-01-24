@@ -1,4 +1,4 @@
-function calcularPromedioSinExtremos(numeros) {
+export function calcularPromedioSinExtremos(numeros) {
     
     let maximo = numeros[0];
     let minimo = numeros[0];

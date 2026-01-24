@@ -1,18 +1,26 @@
-function detectarTransaccionSospechosa(transacciones) {
+export function detectarTransaccionSospechosa(transacciones) {
     
-    let suma = transacciones[0];
+    for (let i = 0; i < transacciones.length; i++) {
+        let suma = 0;
+        let contador = 0;
 
-    for (let i = 1; i < transacciones.length; i++) {
-        let promedio = suma / i;
+        for (let j = 0; j < transacciones.length; j++) {
+            if (i !== j) { 
+                suma += transacciones[j];
+                contador++;
+            }
+        }
 
-        if (transacciones[i] > promedio * 4) {
+        if (contador === 0) continue;
+
+        let promedio = suma / contador;
+
+        if (transacciones[i] > promedio * 4) { 
             return {
                 monto: transacciones[i],
                 estado: "Sospechosa"
             };
         }
-
-        suma += transacciones[i];
     }
 
     return null;
