@@ -20,6 +20,7 @@ const liquidacionServicios = require('./ejercicio16')
 const monitoreoTransacciones = require('./ejercicio17')
 const restriccionBiblioteca = require('./ejercicio18')
 const planRutaEntrega = require('./ejercicio19')
+const generadorCSV = require('./ejercicio20')
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -214,10 +215,15 @@ function ejecutarEjercicio(opcion) {
   iniciarMenu()
   return
 
+  case 20:
+  const usuarios = [
+    { id: 1, nombre: 'Juan', email: 'juan@mail.com' },
+    { id: 2, nombre: 'Ana', email: 'ana@mail.com' }
+  ]
 
-
-
-
+  console.log(generadorCSV(usuarios))
+  iniciarMenu()
+  return
 
     default:
       console.log('Opcion invalida')
