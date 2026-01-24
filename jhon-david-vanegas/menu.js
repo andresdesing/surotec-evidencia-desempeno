@@ -19,6 +19,7 @@ const filtrarTareasUrgentes = require('./ejercicio15')
 const liquidacionServicios = require('./ejercicio16')
 const monitoreoTransacciones = require('./ejercicio17')
 const restriccionBiblioteca = require('./ejercicio18')
+const planRutaEntrega = require('./ejercicio19')
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -200,6 +201,19 @@ function ejecutarEjercicio(opcion) {
   console.log(permitido ? 'Préstamo permitido' : 'Préstamo denegado')
   iniciarMenu()
   return
+
+  case 19:
+  const destinos = [
+    { nombre: 'A', distancia: 50 },
+    { nombre: 'B', distancia: 80 },
+    { nombre: 'C', distancia: 90 },
+    { nombre: 'D', distancia: 30 }
+  ]
+
+  console.log(planRutaEntrega(destinos))
+  iniciarMenu()
+  return
+
 
 
 
