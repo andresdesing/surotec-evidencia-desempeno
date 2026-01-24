@@ -5,6 +5,7 @@ import { calcularTotalCarrito } from "./ejercicio4.js";
 import { calcularAsistenciaEmpleado } from "./ejercicio5.js";
 import { calcularImpuestosVentas } from "./ejercicio6.js";
 import { validarPassword } from "./ejercicio7.js";
+import { calcularEstadisticas } from "./ejercicio8.js";
 
 const inventario = [
     { nombre: "Teclado", stock: 6, precio: 100 },
@@ -93,19 +94,29 @@ function ejecutarOpcion(opcion) {
             }
             break;
         case "7":
-    const mensajeRequisitos = "REQUISITOS PARA UNA CONTRASEÑA SEGURA:\n" +
-                              "- Mínimo 8 caracteres.\n" +
-                              "- Al menos un número.\n" +
-                              "- Al menos un carácter especial (ej: @, #, $, *).";
-    
-    alert(mensajeRequisitos);
-    const password = prompt("Ingrese la contraseña a validar:");
-    
-    if (password !== null) {
-        const resultado = validarPassword(password);
-        alert(`La contraseña analizada es: ${resultado}`);
-    }
-    break;
+            alert("Requisitos: Mínimo 8 caracteres, 1 número y 1 especial.");
+            const password = prompt("Ingrese contraseña:");
+            if (password !== null) alert(`Resultado: ${validarPassword(password)}`);
+            break;
+        case "8":
+            let puntajes = [];
+            let ingresandoPuntajes = true;
+            while (ingresandoPuntajes) {
+                let dato = prompt("Ingrese puntaje o 'P' para procesar:");
+                if (dato?.toUpperCase() === "P") {
+                    const stats = calcularEstadisticas(puntajes);
+                    alert(typeof stats === "string" ? stats : `Promedio (sin extremos): ${stats.promedioRestante}`);
+                    ingresandoPuntajes = false;
+                } else if (!isNaN(dato) && dato !== "") {
+                    puntajes.push(Number(dato));
+                }
+            }
+            break;
+        case "0":
+            return false;
+        default:
+            alert("Opción inválida.");
+            break;
     }
     return true;
 }
@@ -114,7 +125,17 @@ function iniciarPrograma() {
     let continuar = true;
     while (continuar) {
         const seleccion = prompt(
-            "MENÚ EVALUACIÓN\n1. Cajero\n2. Inventario\n3. Becas\n4. Carrito\n5. Asistencia\n6. Impuestos\n7. Validador Password\n0. Salir"
+            "--- MENÚ DE EJERCICIOS ---\n" +
+            "1. Cajero Automático\n" +
+            "2. Inventario Dinámico\n" +
+            "3. Sistema de Becas\n" +
+            "4. Carrito de Compras\n" +
+            "5. Control de Asistencia\n" +
+            "6. Impuestos de Ventas\n" +
+            "7. Validador de Contraseñas\n" +
+            "8. Estadísticas de Puntaje\n" +
+            "0. Salir\n\n" +
+            "Seleccione una opción:"
         );
         continuar = (seleccion === "0" || seleccion === null) ? false : ejecutarOpcion(seleccion);
     }
