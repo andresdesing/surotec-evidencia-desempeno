@@ -4,6 +4,7 @@ import { evaluarBeca } from './ejercicio3.js';
 import { calcularTotalCarrito, carritoPrueba } from './ejercicio4.js';
 import { evaluarAsistencia, asistenciasPrueba1, asistenciasPrueba2 } from './ejercicio5.js';
 import { calcularImpuestosVentas, ventasPrueba } from './ejercicio6.js';
+import { validarPassword, passwordPruebaSegura, passwordPruebaInsegura } from './ejercicio7.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -17,6 +18,7 @@ function menuPrincipal() {
             "4. Descuento por categoría en carrito de compras\n" +
             "5. Evaluar asistencia - establecer multa\n" +
             "6. Calcular impuestos ventas\n" +
+            "7. Validar el nivel de seguridad en una contaseña\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -114,6 +116,23 @@ function menuPrincipal() {
                     `Retención aplicada (4%): Solo a ventas > $500.000\n\n` +
                     `ACUMULADO TOTAL IMPUESTOS: $${totalImpuestos}`
                 );
+                break;
+
+            case '7':
+                const passUsuario = prompt("Ingrese una contraseña para validar (o deje vacío para usar pruebas):");
+
+                if (passUsuario) {
+                    const resultado = validarPassword(passUsuario);
+                    alert(`La contraseña ingresada es: ${resultado}`);
+                } else {
+                    const res1 = validarPassword(passwordPruebaSegura);
+                    const res2 = validarPassword(passwordPruebaInsegura);
+                    alert(
+                        `--- PRUEBA AUTOMÁTICA ---\n\n` +
+                        `Password "${passwordPruebaSegura}": ${res1}\n` +
+                        `Password "${passwordPruebaInsegura}": ${res2}`
+                    );
+                }
                 break;
         }
     }
