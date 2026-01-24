@@ -17,6 +17,7 @@ const alertaSensores = require('./ejercicio13')
 const descuentoLealtad = require('./ejercicio14')
 const filtrarTareasUrgentes = require('./ejercicio15')
 const liquidacionServicios = require('./ejercicio16')
+const monitoreoTransacciones = require('./ejercicio17')
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -181,6 +182,13 @@ function ejecutarEjercicio(opcion) {
   console.log(liquidacionServicios(consumo, estrato))
   iniciarMenu()
   return
+
+  case 17:
+  const historial = [100, 120, 110, 600]
+  console.log(monitoreoTransacciones(historial))
+  iniciarMenu()
+  return
+
 
 
 
