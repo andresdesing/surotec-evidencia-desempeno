@@ -5,6 +5,7 @@ import { calcularTotalCarrito, carritoPrueba } from './ejercicio4.js';
 import { evaluarAsistencia, asistenciasPrueba1, asistenciasPrueba2 } from './ejercicio5.js';
 import { calcularImpuestosVentas, ventasPrueba } from './ejercicio6.js';
 import { validarPassword, passwordPruebaSegura, passwordPruebaInsegura } from './ejercicio7.js';
+import { calcularEstadisticasPuntaje, puntajesPrueba } from './ejercicio8.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -19,6 +20,7 @@ function menuPrincipal() {
             "5. Evaluar asistencia - establecer multa\n" +
             "6. Calcular impuestos ventas\n" +
             "7. Validar el nivel de seguridad en una contaseña\n" +
+            "8. Calcular promedio restando máximo y mínimo\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -133,6 +135,20 @@ function menuPrincipal() {
                         `Password "${passwordPruebaInsegura}": ${res2}`
                     );
                 }
+                break;
+
+            case '8':
+                const promedio = calcularEstadisticasPuntaje(puntajesPrueba);
+                const max = Math.max(...puntajesPrueba);
+                const min = Math.min(...puntajesPrueba);
+
+                alert(
+                    `--- ESTADÍSTICAS DE PUNTAJE ---\n\n` +
+                    `Puntajes originales: ${puntajesPrueba.join(', ')}\n` +
+                    `Valor más alto (excluido): ${max}\n` +
+                    `Valor más bajo (excluido): ${min}\n\n` +
+                    `PROMEDIO RESTANTE: ${promedio}`
+                );
                 break;
         }
     }
