@@ -14,6 +14,7 @@ import { monitorearSensores } from "./ejercicio13.js";
 import { calcularDescuentoLealtad } from "./ejercicio14.js";
 import { filtrarTareasUrgentes } from "./ejercicio15.js";
 import { calcularLiquidacionAgua } from "./ejercicio16.js";
+import { monitorearTransacciones } from "./ejercicio17.js";
 
 const inventario = [
     { nombre: "Teclado", stock: 6, precio: 100 },
@@ -117,50 +118,24 @@ function ejecutarOpcion(opcion) {
         case "15":
             const listaTareas = [
                 { descripcion: "Corregir bug login", prioridad: "alta", dias: 1 },
-                { descripcion: "Revisar correo", prioridad: "baja", dias: 0 },
-                { descripcion: "Preparar presentación", prioridad: "alta", dias: 5 },
-                { descripcion: "Subir a producción", prioridad: "alta", dias: 0 }
+                { descripcion: "Subir a producción", prioridad: "alta", dias: 0 },
+                { descripcion: "Revisar correo", prioridad: "baja", dias: 0 }
             ];
             const urgentes = filtrarTareasUrgentes(listaTareas);
-            alert("TAREAS URGENTES (Alta prioridad & < 2 días):\n" + JSON.stringify(urgentes, null, 2));
+            alert("TAREAS URGENTES:\n" + JSON.stringify(urgentes, null, 2));
             break;
         case "16":
-    
-    const pruebasAgua = [
-        { m3: 10, estrato: 1, desc: "Consumo Bajo (Rango 1) + Subsidio" },
-        { m3: 25, estrato: 2, desc: "Consumo Medio (Rango 1 y 2) Sin Subsidio" },
-        { m3: 35, estrato: 1, desc: "Consumo Alto (Rango 1, 2 y 3) + Subsidio" }
-    ];
-
-    let reporteAgua = "DETALLE DE LIQUIDACIÓN DE AGUA\n";
-    reporteAgua += "---------------------------------------\n";
-
-    pruebasAgua.forEach((prueba, index) => {
-        const valorFinal = calcularLiquidacionAgua(prueba.m3, prueba.estrato);
-        
-        reporteAgua += `PRUEBA ${index + 1}: ${prueba.desc}\n`;
-        reporteAgua += `• Consumo Total: ${prueba.m3} m³\n`;
-        reporteAgua += `• Estrato: ${prueba.estrato}\n`;
-        
-       
-        if (prueba.m3 <= 15) {
-            reporteAgua += `  -> Todo en Rango 1 ($1.000)\n`;
-        } else if (prueba.m3 <= 30) {
-            reporteAgua += `  -> 15m³ Rango 1 + ${prueba.m3 - 15}m³ Rango 2 ($1.500)\n`;
-        } else {
-            reporteAgua += `  -> 15m³ Rango 1 + 15m³ Rango 2 + ${prueba.m3 - 30}m³ Rango 3 ($2.500)\n`;
-        }
-
-        if (prueba.estrato === 1) {
-            reporteAgua += `  -> Subsidio aplicado: -20%\n`;
-        }
-
-        reporteAgua += `TOTAL A PAGAR: $${valorFinal}\n`;
-        reporteAgua += "---------------------------------------\n";
-    });
-
-    alert(reporteAgua);
-    break;
+            const resH2O = calcularLiquidacionAgua(35, 1);
+            alert(`Liquidación Agua (35m3, Estrato 1): $${resH2O}`);
+            break;
+        case "17":
+            const historial = [50000, 60000, 45000, 55000, 800000, 52000];
+            const analisis = monitorearTransacciones(historial);
+            const sospechosas = analisis.filter(t => t.estado === "Sospechosa");
+            alert(`HISTORIAL:\n${JSON.stringify(analisis, null, 2)}\n\nSOSPECHOSAS:\n${JSON.stringify(sospechosas, null, 2)}`);
+            break;
+        case "0": return false;
+        default: alert("Opción no válida."); break;
     }
     return true;
 }
@@ -170,10 +145,7 @@ function iniciarPrograma() {
     while (loop) {
         const sel = prompt(
             "--- EVALUACIÓN JAVASCRIPT ---\n" +
-            "1. Cajero\n2. Inventario\n3. Becas\n4. Carrito\n5. Asistencia\n" +
-            "6. Impuestos\n7. Passwords\n8. Estadísticas\n9. Nómina\n10. Moneda\n" +
-            "11. Aula\n12. Palabras\n13. Sensores\n14. Lealtad\n15. Tareas\n16. Agua\n" +
-            "0. Salir"
+            "1-10. Ejercicios Base\n11. Aula\n12. Palabras\n13. Sensores\n14. Lealtad\n15. Tareas\n16. Agua\n17. Transacciones\n0. Salir"
         );
         loop = (sel === "0" || sel === null) ? false : ejecutarOpcion(sel);
     }
