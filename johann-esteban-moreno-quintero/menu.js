@@ -11,6 +11,7 @@ import { convertirMoneda } from './ejercicio10.js';
 import { calcularCapacidadAula } from './ejercicio11.js';
 import { analizarPalabrasProhibidas } from './ejercicio12.js';
 import { monitorearSensores } from './ejercicio13.js';
+import { evaluarLealtadClientes, clientesPrueba } from './ejercicio14.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -31,6 +32,7 @@ function menuPrincipal() {
             "11. Calcular capacidad de aula distribuida por grupos\n" +
             "12. Analizar palabras prohibidas en un texto\n" +
             "13. Sensor de temperaturas con alerta\n" +
+            "14. Evaluación de descuento a clientes por fidelidad en compras\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -251,6 +253,22 @@ function menuPrincipal() {
                         `Resultado: ${resultado13}`
                     );
                 }
+                break;
+
+            case '14':
+                const resultados14 = evaluarLealtadClientes(clientesPrueba);
+
+                let reporte14 = "--- REPORTE DE LEALTAD (ÚLTIMAS 5 COMPRAS) ---\n\n";
+                resultados14.forEach(c => {
+                    reporte14 += `${c.nombre}:\n`;
+                    reporte14 += `- Promedio: $${c.promedio}\n`;
+                    reporte14 += `- Antigüedad: ${c.antiguedadAnios} años\n`;
+                    reporte14 += `- Estado: ${c.resultado}\n`;
+                    reporte14 += `---------------------------\n`;
+                });
+
+                alert(reporte14);
+                console.table(resultados14);
                 break;
         }
     }
