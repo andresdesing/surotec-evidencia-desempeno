@@ -8,6 +8,7 @@ import { validarPassword, passwordPruebaSegura, passwordPruebaInsegura } from '.
 import { calcularEstadisticasPuntaje, puntajesPrueba } from './ejercicio8.js';
 import { calcularNomina } from './ejercicio9.js';
 import { convertirMoneda } from './ejercicio10.js';
+import { calcularCapacidadAula } from './ejercicio11.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -25,6 +26,7 @@ function menuPrincipal() {
             "8. Calcular promedio restando máximo y mínimo\n" +
             "9. Calcular el salario basándonos en las horas trabajadas\n" +
             "10.Conversor de moneda con seguimiento de contador de ejecuciones\n" +
+            "11.Calcular capacidad de aula distribuida por grupos\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -188,6 +190,29 @@ function menuPrincipal() {
                         `---------------------------\n` +
                         `Consultas en esta sesión: ${resConv.totalConsultas}`
                     );
+                }
+                break;
+
+            case '11':
+                const cap = parseInt(prompt("Capacidad del aula:"));
+                const gruposInput = prompt("Grupos (ej: 10,20,15):");
+
+                if (!isNaN(cap) && gruposInput) {
+                    const gruposArray = gruposInput.split(',').map(Number);
+                    const resultado11 = calcularCapacidadAula(cap, gruposArray);
+
+                    let mensaje = `--- REPORTE DE CAPACIDAD ---\n`;
+                    resultado11.desglose.forEach(g => {
+                        mensaje += `${g.grupo}: Entraron ${g.ingresaron}, Fuera ${g.fuera}\n`;
+                    });
+
+                    mensaje += `\n--- RESUMEN ---\n`;
+                    mensaje += `Lograron entrar: ${resultado11.resumen.totalIngresaron}\n`;
+                    mensaje += `Quedaron fuera: ${resultado11.resumen.totalFuera}\n`;
+                    mensaje += `Espacio vacío: ${resultado11.resumen.espacioSobrante}`;
+
+                    alert(mensaje);
+                    console.table(resultado11.desglose);
                 }
                 break;
         }
