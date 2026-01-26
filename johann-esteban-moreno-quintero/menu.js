@@ -9,6 +9,7 @@ import { calcularEstadisticasPuntaje, puntajesPrueba } from './ejercicio8.js';
 import { calcularNomina } from './ejercicio9.js';
 import { convertirMoneda } from './ejercicio10.js';
 import { calcularCapacidadAula } from './ejercicio11.js';
+import { analizarPalabrasProhibidas } from './ejercicio12.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -25,8 +26,9 @@ function menuPrincipal() {
             "7. Validar el nivel de seguridad en una contaseña\n" +
             "8. Calcular promedio restando máximo y mínimo\n" +
             "9. Calcular el salario basándonos en las horas trabajadas\n" +
-            "10.Conversor de moneda con seguimiento de contador de ejecuciones\n" +
-            "11.Calcular capacidad de aula distribuida por grupos\n" +
+            "10. Conversor de moneda con seguimiento de contador de ejecuciones\n" +
+            "11. Calcular capacidad de aula distribuida por grupos\n" +
+            "12. Analizar palabras prohibidas en un texto\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -213,6 +215,24 @@ function menuPrincipal() {
 
                     alert(mensaje);
                     console.table(resultado11.desglose);
+                }
+                break;
+
+            case '12':
+                const textoUsuario = prompt("Ingrese el texto a analizar:");
+                const prohibidasInput = prompt("Ingrese las palabras prohibidas separadas por coma:");
+
+                if (textoUsuario && prohibidasInput) {
+                    const listaProhibidas = prohibidasInput.split(',').map(p => p.trim());
+                    const resultado12 = analizarPalabrasProhibidas(textoUsuario, listaProhibidas);
+
+                    let reporte = "--- RESULTADO DEL ANÁLISIS ---\n";
+                    for (const palabra in resultado12) {
+                        reporte += `- "${palabra}": ${resultado12[palabra]} veces\n`;
+                    }
+
+                    alert(reporte);
+                    console.table(resultado12);
                 }
                 break;
         }
