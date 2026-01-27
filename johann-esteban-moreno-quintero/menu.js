@@ -16,6 +16,7 @@ import { filtrarTareasUrgentes, tareasPrueba } from './ejercicio15.js';
 import { liquidarServicioAgua } from './ejercicio16.js';
 import { monitorearTransacciones, historialTransaccionesPrueba } from './ejercicio17.js';
 import { validarPrestamoBiblioteca, usuarioAprobado, usuarioDenegado } from './ejercicio18.js';
+import { planificarRutaEficiente, rutaPrueba } from './ejercicio19.js';
 
 function menuPrincipal() {
     let continuar = true;
@@ -41,6 +42,7 @@ function menuPrincipal() {
             "16. Liquidación de agua por rangos progresivos y subsidio por estrato\n" +
             "17. Monitoreo de transacciones sospechosas por desviación de promedio\n" +
             "18. Sistema de biblioteca para validación de multas y retrasos\n" +
+            "19. Planificación de ruta de entrega basada en combustible\n" +
             "0. Salir\n" +
             "Seleccione una opción:"
         );
@@ -376,6 +378,40 @@ function menuPrincipal() {
 
                 alert(reporte18);
                 console.table(resultado18.detalles);
+                break;
+
+            case '19':
+                let listaParaProcesar = [];
+                const modo = prompt("Seleccione modo:\n1. Usar datos de prueba\n2. Ingresar propia ruta");
+
+                if (modo === '2') {
+                    const cantidad = parseInt(prompt("¿Cuántos destinos desea ingresar?"));
+                    for (let i = 0; i < cantidad; i++) {
+                        const nombre = prompt(`Nombre del destino ${i + 1}:`);
+                        const dist = parseFloat(prompt(`Distancia a ${nombre} (km):`));
+                        if (nombre && !isNaN(dist)) listaParaProcesar.push({ destino: nombre, distancia: dist });
+                    }
+                } else {
+                    listaParaProcesar = rutaPrueba;
+                }
+
+                if (listaParaProcesar.length > 0) {
+                    const res19 = planificarRutaEficiente(listaParaProcesar);
+
+                    let reporte19 = "--- RUTA MÁS EFICIENTE (Ordenada por cercanía) ---\n\n";
+                    reporte19 += "LOGRADOS:\n";
+                    res19.alcanzados.forEach(d => {
+                        reporte19 += `- ${d.nombre} (${d.distancia}km) | Saldo: ${d.combustibleRestante}km\n`;
+                    });
+
+                    if (res19.noAlcanzados.length > 0) {
+                        reporte19 += "\n INALCANZABLES:\n";
+                        res19.noAlcanzados.forEach(d => reporte19 += `- ${d.nombre} (${d.distanciaRequerida}km)\n`);
+                    }
+
+                    reporte19 += `\nTotal destinos logrados: ${res19.resumen.cantidadAlcanzados}`;
+                    alert(reporte19);
+                }
                 break;
 
         }
