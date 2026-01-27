@@ -92,7 +92,12 @@ function ejecutarOpc(opc) {
         alert("Resultado control de asistencia: " + controlAsistencia(horasLlegada));
         break;
 
-    
+    case "6":
+        const ventas = [300000, 600000, 1500, 450000];
+
+        alert ("Ventas registradas: " + JSON.stringify(ventas));
+        alert ("Total impuestos de ventas: " + impuestosVentas(ventas));
+        break;
 
 
 
