@@ -13,6 +13,7 @@ import { analizarPalabras } from './ejercicio12.js'
 import { verificarSensores } from './ejercicio13.js'
 import { calcularDescuentoLealtad } from './ejercicio14.js'
 import { filtrarTareas } from './ejercicio15.js'
+import { calcularCostoServicio } from './ejercicio16.js'
 
 function ejecutarMenu() {
 
@@ -35,6 +36,7 @@ function ejecutarMenu() {
         menu += "13. Alerta de Sensores\n";
         menu += "14. Descuento por Lealtad\n";
         menu += "15. Filtro de Tareas Urgentes\n";
+        menu += "16. Liquidación Servicio de Agua\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -185,6 +187,13 @@ function ejecutarMenu() {
                 ]
                 const tareasUrgentes = filtrarTareas(tareas)
                 alert("TAREAS URGENTES: \n" + JSON.stringify(tareasUrgentes, null, 2))
+                break
+
+            case '16':
+                const consumo = parseFloat(prompt("Ingrese el consumo de agua en m3"))
+                const estratoHogar = parseInt(prompt("Ingrese el estrato socioeconómico"))
+                const totalPagar = calcularCostoServicio(consumo, estratoHogar)
+                alert("TOTAL A PAGAR SERVICIO: " + totalPagar)
                 break
 
             case '0':
