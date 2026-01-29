@@ -12,6 +12,7 @@ import { gestionarAula } from './ejercicio11.js'
 import { analizarPalabras } from './ejercicio12.js'
 import { verificarSensores } from './ejercicio13.js'
 import { calcularDescuentoLealtad } from './ejercicio14.js'
+import { filtrarTareas } from './ejercicio15.js'
 
 function ejecutarMenu() {
 
@@ -33,6 +34,7 @@ function ejecutarMenu() {
         menu += "12. Análisis de Palabras Prohibidas\n";
         menu += "13. Alerta de Sensores\n";
         menu += "14. Descuento por Lealtad\n";
+        menu += "15. Filtro de Tareas Urgentes\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -172,6 +174,17 @@ function ejecutarMenu() {
                 const antiguedad = parseInt(prompt("Ingrese los años de antiguedad"))
                 const resultado14 = calcularDescuentoLealtad(compras, antiguedad)
                 alert("RESULTADO: " + resultado14)
+                break
+
+            case '15':
+                const tareas = [
+                    { descripcion: "Corregir bug crítico", prioridad: "alta", dias: 1 },
+                    { descripcion: "Reunión de equipo", prioridad: "media", dias: 3 },
+                    { descripcion: "Actualizar documentación", prioridad: "baja", dias: 5 },
+                    { descripcion: "Pago de servidor", prioridad: "alta", dias: 0 }
+                ]
+                const tareasUrgentes = filtrarTareas(tareas)
+                alert("TAREAS URGENTES: \n" + JSON.stringify(tareasUrgentes, null, 2))
                 break
 
             case '0':
