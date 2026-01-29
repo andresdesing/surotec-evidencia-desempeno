@@ -14,6 +14,7 @@ import { verificarSensores } from './ejercicio13.js'
 import { calcularDescuentoLealtad } from './ejercicio14.js'
 import { filtrarTareas } from './ejercicio15.js'
 import { calcularCostoServicio } from './ejercicio16.js'
+import { monitorearTransacciones } from './ejercicio17.js'
 
 function ejecutarMenu() {
 
@@ -37,6 +38,7 @@ function ejecutarMenu() {
         menu += "14. Descuento por Lealtad\n";
         menu += "15. Filtro de Tareas Urgentes\n";
         menu += "16. Liquidación Servicio de Agua\n";
+        menu += "17. Monitoreo de Transacciones\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -194,6 +196,17 @@ function ejecutarMenu() {
                 const estratoHogar = parseInt(prompt("Ingrese el estrato socioeconómico"))
                 const totalPagar = calcularCostoServicio(consumo, estratoHogar)
                 alert("TOTAL A PAGAR SERVICIO: " + totalPagar)
+                break
+
+            case '17':
+                const entradaTransacciones = prompt("Ingrese el historial de transacciones (ej: 100,120,5000,110)")
+                const arrayStrTrans = entradaTransacciones.split(",")
+                const transacciones = []
+                for (let i = 0; i < arrayStrTrans.length; i++) {
+                    transacciones.push(Number(arrayStrTrans[i]))
+                }
+                const sospechosas = monitorearTransacciones(transacciones)
+                alert("TRANSACCIONES SOSPECHOSAS: \n" + JSON.stringify(sospechosas, null, 2))
                 break
 
             case '0':
