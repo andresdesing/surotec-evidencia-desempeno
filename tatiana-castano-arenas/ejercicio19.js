@@ -10,7 +10,7 @@ export function calcularRutaEntrega(destinos, combustibleMax = 200) {
                 acumulado: distanciaAcumulada
             });
         } else {
-            break; 
+            break; // Combustible insuficiente para el siguiente punto
         }
     }
 
