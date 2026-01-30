@@ -172,12 +172,35 @@ function ejecutarOpc(opc) {
       alert("Estado del sensor: " + estadoSensor);
       break;
 
-      case "14":
-        const compras = [120000, 95000, 130000, 110000];
-        const anios = 3;
-        const descuento = descuentoLealtad(compras, anios);
-        alert("Resultado del descuento por lealtad: " + descuento);
-        break;
+    case "14":
+      const compras = [120000, 95000, 130000, 110000];
+      const anios = 3;
+      const descuento = descuentoLealtad(compras, anios);
+      alert("Resultado del descuento por lealtad: " + descuento);
+      break;
+
+    case "15":
+      const tareas = [
+        { descripcion: "Entregar informe", prioridad: "alta", dias: 1 },
+        { descripcion: "Revisar correos", prioridad: "media", dias: 3 },
+        { descripcion: "Llamar cliente", prioridad: "alta", dias: 1 },
+        { descripcion: "Reunión equipo", prioridad: "baja", dias: 5 },
+        { descripcion: "Actualizar sistema", prioridad: "alta", dias: 2 },
+      ];
+
+      const tareasUrgentes = filtroTareas(tareas);
+      let mensajeTareas = "Tareas urgentes:\n";
+
+      for (let i = 0; i < tareasUrgentes.length; i++) {
+        mensajeTareas +=
+          "- " +
+          tareasUrgentes[i].descripcion +
+          " vence en " +
+          tareasUrgentes[i].dias +
+          " días\n";
+      }
+      alert(mensajeTareas);
+      break;
   }
 }
 
