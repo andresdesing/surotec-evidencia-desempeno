@@ -114,27 +114,39 @@ function ejecutarOpc(opc) {
       alert("Promedio sin máximo ni mínimo: " + estadisticasPuntaje(puntajes));
       break;
 
-      case "9":
-        const horasTrabajadas = prompt("Ingrese el número de horas trabajadas:");
-        const valorHora = 10000;
+    case "9":
+      const horasTrabajadas = prompt("Ingrese el número de horas trabajadas:");
+      const valorHora = 10000;
 
-        alert("Horas trabajadas: " + horasTrabajadas)
-        alert("Valor por hora: " + valorHora)
-        alert("Salario total con recargos: " + nominaRecargos(horasTrabajadas, valorHora))
-        break;
+      alert("Horas trabajadas: " + horasTrabajadas);
+      alert("Valor por hora: " + valorHora);
+      alert(
+        "Salario total con recargos: " +
+          nominaRecargos(horasTrabajadas, valorHora),
+      );
+      break;
 
-        case "10":
-          let valor = parseFloat(prompt("Ingrese el monto a convertir: "));
-          let origen = prompt("Ingrese la moneda de origen (COP, USD, EUR): ").toUpperCase();
-          let destino = prompt("Ingrese la moneda de destino (COP, USD, EUR): ").toUpperCase();
-          let resultadoConversion = conversorRegistro(valor, origen, destino);
-          alert(resultadoConversion);
-          break;
+    case "10":
+      let valor = parseFloat(prompt("Ingrese el monto a convertir: "));
+      let origen = prompt(
+        "Ingrese la moneda de origen (COP, USD, EUR): ",
+      ).toUpperCase();
+      let destino = prompt(
+        "Ingrese la moneda de destino (COP, USD, EUR): ",
+      ).toUpperCase();
+      let resultadoConversion = conversorRegistro(valor, origen, destino);
+      alert(resultadoConversion);
+      break;
 
-
-
-
-
+    case "11":
+      const limiteAula = parseInt(prompt("Ingrese la capacidad del aula:"));
+      const grupos = prompt("Ingrese la cantidad de estudiantes en cada grupo, separados por comas (ejemplo: 10,15,20):");
+      const gruposArray = grupos.split(",").map(num => parseInt(num));
+      const estudiantesFuera = capacidadAula(limiteAula, gruposArray);
+      alert("Número de estudiantes que no pudieron entrar al aula: " + estudiantesFuera);
+      break; 
+      
+      
   }
 }
 
