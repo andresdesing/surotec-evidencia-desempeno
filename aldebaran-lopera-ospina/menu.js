@@ -17,6 +17,7 @@ import { calcularFacturaAgua } from "./ejercicio16.js";
 import { monitorearTransacciones } from "./ejercicio17.js";
 import { verificarPrestamo } from "./ejercicio18.js";
 import { planificarRuta } from "./ejercicio19.js";
+import { generarCSV } from "./ejercicio20.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -42,7 +43,7 @@ function ejecutarMenu() {
     menuPrincipal += "17. Monitoreo de Transacciones\n";
     menuPrincipal += "18. Restricción de Biblioteca\n";
     menuPrincipal += "19. Plan de Ruta de Entrega\n";
-    menuPrincipal += "20. Ejercicio 20\n";
+    menuPrincipal += "20. Generador de CSV (Exportar)\n";
     menuPrincipal += "0. Salir";
 
     const opcion = prompt(menuPrincipal);
@@ -340,7 +341,25 @@ function ejecutarMenu() {
 
         alert(`Ruta Finalizada.\n\nSe lograron visitar estos puntos:\n${JSON.stringify(entregasExitosas)}\n\n(El combustible se agotó antes de llegar al Cliente D).`);
         break;
-      
+
+      case "20":
+        const usuariosDB = [
+            { id: 1, nombre: "Juan Perez", email: "juan@example.com" },
+            { id: 2, nombre: "Maria Lopez", email: "maria@example.com" },
+            { id: 3, nombre: "Carlos Diaz", email: "carlos@example.com" },
+            { id: 4, nombre: "Ana Guerra", email: "ana@example.com" }
+        ];
+
+        alert("Datos originales (JSON):\n" + JSON.stringify(usuariosDB, null, 2));
+
+        const resultadoCSV = generarCSV(usuariosDB);
+
+        alert("Resultado formato CSV:\n\n" + resultadoCSV);
+        
+        console.log("--- VISTA PREVIA CSV EN CONSOLA ---");
+        console.log(resultadoCSV);
+        break;
+
       default:
         alert("Opción no válida");
         break;
