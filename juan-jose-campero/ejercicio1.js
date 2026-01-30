@@ -1,5 +1,19 @@
-function cajeroAutomatico(monto) {
+ 
+ function menuCajero() { 
+ console.log("Ingrese la cantidad de monto a retirar");
+            const monto = Number(prompt("Ingrese cantidad: "));
+            if (isNaN(monto) || monto <= 0) {
+                console.log("Monto inválido.");
+                return null;
+            }
+            return monto;
 
+ }
+
+
+
+
+function cajeroAutomatico(monto) {
     if (monto <= 0 || monto % 10000 !== 0) {
         return "Monto inválido";
     }
@@ -20,3 +34,5 @@ function cajeroAutomatico(monto) {
         "10.000": billete10k
     };
 }
+export default cajeroAutomatico;
+export { menuCajero };

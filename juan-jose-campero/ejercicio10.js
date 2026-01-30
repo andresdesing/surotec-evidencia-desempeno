@@ -3,9 +3,12 @@ function pedirDatosConversion() {
     const origen = prompt("Moneda origen (COP, USD, EUR): ").toUpperCase();
     const destino = prompt("Moneda destino (COP, USD, EUR): ").toUpperCase();
 
+    if (isNaN(montoConv) || montoConv <= 0) {
+        return null;
+    }
+
     return { montoConv, origen, destino };
 }
-
 
 
 
@@ -19,19 +22,23 @@ function crearConversor() {
     };
 
     return function convertir(montoConv, origen, destino) {
-        if (origen === destino) {
-            return montoConv;
-        }
-
-        if (!tasas[origen] || !tasas[origen][destino]) {
-            return "Conversión no válida";
-        }
-
+    if (isNaN(montoConv) || montoConv <= 0) return null;
+    if (origen === destino) {
         contador++;
+        return { resultadoConv: montoConv, contador };
+    }
 
-        const resultadoConv = montoConv * tasas[origen][destino];
-        return { resultadoConv, contador };
+    if (!tasas[origen] || !tasas[origen][destino]) {
+        return null;
+    }
+
+    contador++;
+    return {
+        resultadoConv: montoConv * tasas[origen][destino],
+        contador
     };
+};
+
 }
 
 export default crearConversor;
