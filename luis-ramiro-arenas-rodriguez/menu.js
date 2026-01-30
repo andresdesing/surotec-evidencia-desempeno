@@ -114,8 +114,14 @@ function ejecutarOpc(opc) {
       alert("Promedio sin máximo ni mínimo: " + estadisticasPuntaje(puntajes));
       break;
 
-      
+      case "9":
+        const horasTrabajadas = prompt("Ingrese el número de horas trabajadas:");
+        const valorHora = 10000;
 
+        alert("Horas trabajadas: " + horasTrabajadas)
+        alert("Valor por hora: " + valorHora)
+        alert("Salario total con recargos: " + nominaRecargos(horasTrabajadas, valorHora))
+        break;
 
 
   }
