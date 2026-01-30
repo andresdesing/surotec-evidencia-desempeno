@@ -140,16 +140,25 @@ function ejecutarOpc(opc) {
 
     case "11":
       const limiteAula = parseInt(prompt("Ingrese la capacidad del aula:"));
-      const grupos = prompt("Ingrese la cantidad de estudiantes en cada grupo, separados por comas (ejemplo: 10,15,20):");
-      const gruposArray = grupos.split(",").map(num => parseInt(num));
+      const grupos = prompt(
+        "Ingrese la cantidad de estudiantes en cada grupo, separados por comas (ejemplo: 10,15,20):",
+      );
+      const gruposArray = grupos.split(",").map((num) => parseInt(num));
       const estudiantesFuera = capacidadAula(limiteAula, gruposArray);
-      alert("Número de estudiantes que no pudieron entrar al aula: " + estudiantesFuera);
-      break; 
-      
-      case "12":
-      const textoAnalizar = "Este texto contiene palabras prohibidas como spam y fraude. El spam es molesto.";
-      const palabrasProhibidasArray= ["spam", "fraude", "phishing"];
-      const resultadoBusqueda = busquedaPalabrasProhibidas(textoAnalizar, palabrasProhibidasArray);
+      alert(
+        "Número de estudiantes que no pudieron entrar al aula: " +
+          estudiantesFuera,
+      );
+      break;
+
+    case "12":
+      const textoAnalizar =
+        "Este texto contiene palabras prohibidas como spam y fraude. El spam es molesto.";
+      const palabrasProhibidasArray = ["spam", "fraude", "phishing"];
+      const resultadoBusqueda = busquedaPalabrasProhibidas(
+        textoAnalizar,
+        palabrasProhibidasArray,
+      );
       let mensajeResultado = "Palabras prohibidas encontradas:\n";
       for (let palabra in resultadoBusqueda) {
         mensajeResultado += palabra + ": " + resultadoBusqueda[palabra] + "\n";
@@ -157,10 +166,11 @@ function ejecutarOpc(opc) {
       alert(mensajeResultado);
       break;
 
-
-
-
-
+    case "13":
+      const temperaturas = [25, 27, 18, 14, 26, 29, 40, 41, 33];
+      const estadoSensor = alertaSensores(temperaturas);
+      alert("Estado del sensor: " + estadoSensor);
+      break;
   }
 }
 
