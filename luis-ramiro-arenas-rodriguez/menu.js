@@ -250,6 +250,21 @@ function ejecutarOpc(opc) {
       }
       alert(mensajeRuta);
       break;
+
+    case "20":
+      const usuarios = [
+        { id: 1, nombre: "Juan Perez", email: "juan@email.com" },
+        { id: 2, nombre: "María García", email: "maria@email.com" },
+        { id: 3, nombre: "Carlos Lopez", email: "carlos@email.com" },
+        { id: 4, nombre: "Ana Martínez", email: "ana@email.com" }
+      ];
+      const archivoCSV = generadorCSV(usuarios);
+      alert("Archivo CSV generado:\n" + archivoCSV);
+      break;
+
+    default:
+      alert("Opción no válida. Por favor, ingrese un número del 1 al 21.");
+      break;
   }
 }
 
