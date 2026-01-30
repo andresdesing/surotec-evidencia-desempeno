@@ -123,6 +123,17 @@ function ejecutarOpc(opc) {
         alert("Salario total con recargos: " + nominaRecargos(horasTrabajadas, valorHora))
         break;
 
+        case "10":
+          let valor = parseFloat(prompt("Ingrese el monto a convertir: "));
+          let origen = prompt("Ingrese la moneda de origen (COP, USD, EUR): ").toUpperCase();
+          let destino = prompt("Ingrese la moneda de destino (COP, USD, EUR): ").toUpperCase();
+          let resultadoConversion = conversorRegistro(valor, origen, destino);
+          alert(resultadoConversion);
+          break;
+
+
+
+
 
   }
 }
