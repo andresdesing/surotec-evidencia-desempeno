@@ -11,6 +11,7 @@ import { convertirMoneda } from "./ejercicio10.js";
 import { gestionarAula } from "./ejercicio11.js";
 import { analizarPalabras } from "./ejercicio12.js";
 import { monitorearTemperatura } from "./ejercicio13.js";
+import { calcularDescuentoLealtad } from "./ejercicio14.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -30,7 +31,7 @@ function ejecutarMenu() {
     menuPrincipal += "11. Capacidad de Aula\n";
     menuPrincipal += "12. Detector de Palabras Prohibidas\n";
     menuPrincipal += "13. Alerta de Sensores\n";
-    menuPrincipal += "14. Ejercicio 14\n";
+    menuPrincipal += "14. Descuento por Lealtad\n";
     menuPrincipal += "15. Ejercicio 15\n";
     menuPrincipal += "16. Ejercicio 16\n";
     menuPrincipal += "17. Ejercicio 17\n";
@@ -225,7 +226,25 @@ function ejecutarMenu() {
         const resultadop = monitorearTemperatura(tempsPeligro);
         const resultadon = monitorearTemperatura(tempsNormal);
 
-        alert(`Prueba 1 [30, 36, 37, 38, 30]:\n🚨 ${resultadop}\n\nPrueba 2 [30, 40, 40, 34, 40]:\n ${resultadon}`);
+        alert(`Prueba 1 [30, 36, 37, 38, 30]:\n ${resultadop}\n\nPrueba 2 [30, 40, 40, 34, 40]:\n ${resultadon}`);
+        break;
+
+      case "14":
+        const comprasA = [120000, 200000, 150000, 100000, 180000];
+        const antiguedadA = 5;
+
+        const comprasB = [20000, 50000, 10000, 40000, 50000];
+        const antiguedadB = 1;
+
+        alert("Analizando clientes...");
+
+        const descuentoA = calcularDescuentoLealtad(comprasA, antiguedadA);
+        const descuentoB = calcularDescuentoLealtad(comprasB, antiguedadB);
+
+        let reporte = `Cliente A (5 años, compras altas):\nResultado: ${descuentoA}% de descuento.\n\n`;
+        reporte += `Cliente B (1 año, compras bajas):\nResultado: ${descuentoB}% de descuento.`;
+
+        alert(reporte);
         break;
 
       default:
