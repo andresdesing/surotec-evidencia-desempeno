@@ -171,6 +171,13 @@ function ejecutarOpc(opc) {
       const estadoSensor = alertaSensores(temperaturas);
       alert("Estado del sensor: " + estadoSensor);
       break;
+
+      case "14":
+        const compras = [120000, 95000, 130000, 110000];
+        const anios = 3;
+        const descuento = descuentoLealtad(compras, anios);
+        alert("Resultado del descuento por lealtad: " + descuento);
+        break;
   }
 }
 
