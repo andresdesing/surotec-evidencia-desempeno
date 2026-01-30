@@ -15,6 +15,7 @@ import { calcularDescuentoLealtad } from "./ejercicio14.js";
 import { filtrarTareasUrgentes } from "./ejercicio15.js";
 import { calcularFacturaAgua } from "./ejercicio16.js";
 import { monitorearTransacciones } from "./ejercicio17.js";
+import { verificarPrestamo } from "./ejercicio18.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -38,7 +39,7 @@ function ejecutarMenu() {
     menuPrincipal += "15. Filtro de Tareas Urgentes\n";
     menuPrincipal += "16. Liquidación de Servicios (Agua)\n";
     menuPrincipal += "17. Monitoreo de Transacciones\n";
-    menuPrincipal += "18. Ejercicio 18\n";
+    menuPrincipal += "18. Restricción de Biblioteca\n";
     menuPrincipal += "19. Ejercicio 19\n";
     menuPrincipal += "20. Ejercicio 20\n";
     menuPrincipal += "0. Salir";
@@ -302,7 +303,28 @@ function ejecutarMenu() {
             alert("Todas las transacciones parecen normales.");
         }
         break;
+      
+      case "18":
+        const hoy = new Date();
         
+        const fechaNormal = new Date(); 
+        fechaNormal.setDate(hoy.getDate() - 5);
+        
+        const fechaVencida = new Date();
+        fechaVencida.setDate(hoy.getDate() - 15);
+
+        const historialPrestamos = [
+            { fechaDevolucion: fechaNormal.toISOString().split('T')[0], multa: 2000 },
+            { fechaDevolucion: fechaVencida.toISOString().split('T')[0], multa: 500 }
+        ];
+
+        alert("Verificando estado del usuario...\nPréstamos actuales:\n" + JSON.stringify(historialPrestamos, null, 2));
+
+        const resultadoBiblioteca = verificarPrestamo(historialPrestamos);
+
+        alert(resultadoBiblioteca.mensaje);
+        break;
+
       default:
         alert("Opción no válida");
         break;
