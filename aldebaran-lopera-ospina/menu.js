@@ -14,6 +14,7 @@ import { monitorearTemperatura } from "./ejercicio13.js";
 import { calcularDescuentoLealtad } from "./ejercicio14.js";
 import { filtrarTareasUrgentes } from "./ejercicio15.js";
 import { calcularFacturaAgua } from "./ejercicio16.js";
+import { monitorearTransacciones } from "./ejercicio17.js";
 
 function ejecutarMenu() {
   let salir = false;
@@ -36,7 +37,7 @@ function ejecutarMenu() {
     menuPrincipal += "14. Descuento por Lealtad\n";
     menuPrincipal += "15. Filtro de Tareas Urgentes\n";
     menuPrincipal += "16. Liquidación de Servicios (Agua)\n";
-    menuPrincipal += "17. Ejercicio 17\n";
+    menuPrincipal += "17. Monitoreo de Transacciones\n";
     menuPrincipal += "18. Ejercicio 18\n";
     menuPrincipal += "19. Ejercicio 19\n";
     menuPrincipal += "20. Ejercicio 20\n";
@@ -287,7 +288,21 @@ function ejecutarMenu() {
             alert("Por favor ingrese valores numéricos válidos.");
         }
         break;
+      case "17":
+        
+        const historial = [100, 150, 120, 5000, 200];
+        
+        alert(`Analizando historial:\n${JSON.stringify(historial)}`);
 
+        const alertas = monitorearTransacciones(historial);
+
+        if (alertas.length > 0) {
+            alert("ALERTA DE FRAUDE DETECTADA:\n" + JSON.stringify(alertas, null, 2));
+        } else {
+            alert("Todas las transacciones parecen normales.");
+        }
+        break;
+        
       default:
         alert("Opción no válida");
         break;
