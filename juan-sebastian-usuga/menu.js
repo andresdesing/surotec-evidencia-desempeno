@@ -16,6 +16,7 @@ import { ejercicio15 } from "./ejercicio15.js";
 import { ejercicio16 } from "./ejercicio16.js";
 import { ejercicio17 } from "./ejercicio17.js";
 import { ejercicio18 } from "./ejercicio18.js";
+import { ejercicio19 } from "./ejercicio19.js";
 
 function ejecutarMenu() {
   let opcion = "";
